@@ -28,7 +28,7 @@
   },
   "android": {
     "gomobileVersion": "v0.0.0-20261011034528-197770444867",
-    "ndkVersion": "29.0.13599879",
+    "ndkVersion": "29.0.14206865",
     "minAPI": 28
   }
 }

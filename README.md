@@ -6,7 +6,7 @@ QWIP uses Android VpnService and libXray. The app keeps profiles in a device-loc
 
 ## Build from source
 
-Use JDK 17, Android SDK 36, NDK 29.0.13599879, Go 1.27.3 and Python 3.12 or later. Set JAVA_HOME and ANDROID_HOME for your machine. Pass the bin directory of the pinned Go installation.
+Use JDK 17, Android SDK 36, the stable NDK r29 (29.0.14206865), Go 1.27.3 and Python 3.12 or later. Set JAVA_HOME and ANDROID_HOME for your machine. Install the NDK with `sdkmanager "ndk;29.0.14206865"`. Pass the bin directory of the pinned Go installation.
 
     python3 tools/build_engine.py --go-bin /absolute/path/to/go1.27.3/bin --sdk "$ANDROID_HOME"
     python3 tools/verify_engine.py

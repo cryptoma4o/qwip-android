@@ -19,6 +19,7 @@ def verify():
     assert artifact['xrayCore']==lock['xrayCore']['commit']
     assert artifact['goVersion']==lock['goVersion']
     assert artifact['gomobileVersion']==lock['android']['gomobileVersion']
+    assert artifact['ndkVersion']==lock['android']['ndkVersion'],'Native AAR NDK version differs from the build lock'
     assert artifact['ndkVersion']==lock['android']['ndkVersion']
     architectures={}
     with zipfile.ZipFile(aar) as archive:

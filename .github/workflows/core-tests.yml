@@ -45,11 +45,22 @@ jobs:
           curl -fLsS --retry 3 -o "$RUNNER_TEMP/go.tar.gz" https://go.dev/dl/go1.27.3.linux-amd64.tar.gz
           echo "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40  $RUNNER_TEMP/go.tar.gz" | sha256sum -c -
           tar -xzf "$RUNNER_TEMP/go.tar.gz" -C "$RUNNER_TEMP"
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36" "build-tools;36.0.0" "ndk;29.0.13599879"
+          ndk_version=$(jq -er '.android.ndkVersion' Config/Engine.lock.json)
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --sdk_root="$ANDROID_HOME" "platforms;android-36" "build-tools;36.0.0" "ndk;$ndk_version"
+          test -s "$ANDROID_HOME/ndk/$ndk_version/meta/platforms.json"
       - name: Compile libXray and verify native binaries and GeoData
         run: |
           python3 tools/build_engine.py --go-bin "$RUNNER_TEMP/go/bin" --sdk "$ANDROID_HOME"
           python3 tools/verify_engine.py
+      - name: Save the source-built engine with its verification record
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: QWIP-Android-engine
+          path: |
+            app/libs/libXray.aar
+            Config/EngineArtifact.json
+          if-no-files-found: error
+          retention-days: 7
       - name: Build and lint release
         run: ./gradlew --no-daemon --console=plain :app:lintRelease :app:bundleRelease
       - name: Record bundle checksum

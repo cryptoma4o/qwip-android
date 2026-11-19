@@ -28,6 +28,10 @@ def main():
     parser.add_argument('--geo-dir', type=Path)
     args = parser.parse_args()
     lock = json.loads((ROOT/'Config/Engine.lock.json').read_text())
+    ndk_version = lock['android']['ndkVersion']
+    ndk = args.sdk.resolve() / 'ndk' / ndk_version
+    if not (ndk / 'meta' / 'platforms.json').is_file():
+        parser.error(f'Install Android NDK {ndk_version} with sdkmanager "ndk;{ndk_version}" in {args.sdk}')
     lib = lock['libXray']
     support = ROOT/'Support'
     support.mkdir(exist_ok=True)
@@ -80,7 +84,7 @@ def main():
         'GOPATH':str(cache/'work'), 'GOCACHE':str(cache/'build'),
         'GOMODCACHE':str(args.module_cache or cache/'modules'),
         'ANDROID_HOME':str(args.sdk), 'ANDROID_SDK_ROOT':str(args.sdk),
-        'ANDROID_NDK_HOME':str(args.sdk/'ndk'/lock['android']['ndkVersion']),
+        'ANDROID_NDK_HOME':str(ndk),
         'LIBXRAY_GOMOBILE_VERSION':lock['android']['gomobileVersion'],
     })
     env['PATH'] = str(args.go_bin) + os.pathsep + str(cache/'work/bin') + os.pathsep + env['PATH']

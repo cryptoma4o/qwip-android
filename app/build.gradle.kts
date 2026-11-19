@@ -7,7 +7,7 @@ plugins {
 android {
     namespace = "com.qwipvpn.app"
     compileSdk = 36
-    ndkVersion = "29.0.13599879"
+    ndkVersion = "29.0.14206865"
     defaultConfig {
         applicationId = "com.qwipvpn.app"
         minSdk = 28
