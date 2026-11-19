@@ -5,8 +5,8 @@
   "goVersion": "1.27.3",
   "gomobileVersion": "v0.0.0-20261011034528-197770444867",
   "ndkVersion": "29.0.13599879",
-  "sha256": "cd028c6a1fdf0d97b2d9801d231ed56c084cf9e1a35d3bf953eedc100427d26b",
-  "bytes": 52674809,
+  "sha256": "7854dee998b3c45bf1bdbe9b738bc8fc25d8ea0b502399a87c84a5b6d0c20670",
+  "bytes": 52632705,
   "abis": [
     "arm64-v8a",
     "armeabi-v7a",

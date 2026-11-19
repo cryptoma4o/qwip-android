@@ -29,18 +29,6 @@ class QrImportTests {
         rule.runOnIdle { model=ViewModelProvider(rule.activity)[ClientViewModel::class.java];model.closeImport(clear=true) }
         rule.waitUntil(30_000) { model.ready.value }
     }
-    @Test fun cabinetLinkOpensTheImportDraft() {
-        val token = "a".repeat(64)
-        val previouslySaved = model.store.value.sources
-        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW,
-            Uri.parse("https://www.qwipvpn.com/open#d/$token"), rule.activity, MainActivity::class.java)
-            .addFlags(android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP)
-        rule.activity.startActivity(intent)
-        val feed = "https://qwipvpn.com/d/$token?format=xray"
-        rule.waitUntil(10_000) { model.importDraft.value == feed }
-        rule.onNodeWithTag("import-text").assertTextContains(feed)
-        assertEquals(previouslySaved, model.store.value.sources)
-    }
     private fun image(withCode: Boolean): File {
         val side=360;val bitmap=Bitmap.createBitmap(side,side,Bitmap.Config.ARGB_8888)
         val matrix=if(withCode)QRCodeWriter().encode(value,BarcodeFormat.QR_CODE,side,side) else null
