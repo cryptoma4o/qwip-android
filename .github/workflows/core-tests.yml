@@ -27,6 +27,7 @@ jobs:
 
   bundle:
     name: Build native engine and Android App Bundle
+    needs: test
     runs-on: ubuntu-24.04
     timeout-minutes: 75
     steps:
