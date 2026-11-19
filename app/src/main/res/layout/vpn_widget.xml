@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/widget_root" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="2dp">
+    <ImageView android:id="@+id/widget_background" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:importantForAccessibility="no" />
+    <LinearLayout android:id="@+id/widget_content" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:gravity="center" android:padding="16dp">
+        <LinearLayout android:id="@+id/widget_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingEnd="8dp">
+            <TextView android:id="@+id/widget_brand" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="QWIP VPN" android:textSize="11sp" android:alpha="0.75" android:maxLines="1" />
+            <TextView android:id="@+id/widget_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/disconnected" android:textSize="16sp" android:textStyle="bold" android:paddingTop="4dp" android:maxLines="2" />
+            <TextView android:id="@+id/widget_server" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="12sp" android:paddingTop="5dp" android:maxLines="2" android:ellipsize="end" />
+            <Chronometer android:id="@+id/widget_timer" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" android:fontFamily="monospace" android:paddingTop="4dp" />
+        </LinearLayout>
+        <FrameLayout android:id="@+id/widget_button" android:layout_width="64dp" android:layout_height="64dp" android:contentDescription="@string/connect">
+            <ImageView android:id="@+id/widget_button_background" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" />
+            <ImageView android:id="@+id/widget_power" android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/mi_power_settings_new" android:importantForAccessibility="no" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

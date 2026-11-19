@@ -1,0 +1,4 @@
+-keep class go.** { *; }
+-keep class libxray.** { *; }
+-keep class libXray.** { *; }
+-keepclasseswithmembernames,includedescriptorclasses class * { native <methods>; }

@@ -1,0 +1,7 @@
+<resources>
+  <string name="vpn_disclosure_title">QWIP VPN 如何处理网络流量</string>
+  <string name="vpn_disclosure_body">QWIP VPN 会根据所选配置的规则处理设备的网络流量。VPN 服务器会处理目标地址及经其传输的数据。配置的 DNS 服务器会接收域名查询。配置与设置保存在此设备上。</string>
+  <string name="vpn_disclosure_accept">同意并连接</string>
+  <string name="vpn_disclosure_save_failed">无法在此设备上保存您的选择，请重试。</string>
+  <string name="vpn_privacy_policy">隐私政策</string>
+</resources>

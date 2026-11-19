@@ -1,0 +1,7 @@
+<resources>
+  <string name="vpn_disclosure_title">How QWIP VPN handles traffic</string>
+  <string name="vpn_disclosure_body">QWIP VPN accesses device network traffic to route it according to the selected profile. The VPN server processes destination addresses and data sent through it. The configured DNS server receives domain queries. Profiles and settings are stored on this device.</string>
+  <string name="vpn_disclosure_accept">Agree and connect</string>
+  <string name="vpn_disclosure_save_failed">Could not save your choice on this device. Please try again.</string>
+  <string name="vpn_privacy_policy">Privacy policy</string>
+</resources>

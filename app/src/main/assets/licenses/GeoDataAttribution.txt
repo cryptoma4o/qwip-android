@@ -1,0 +1,22 @@
+Routing databases bundled with Solafon
+
+v2fly/geoip
+Release: 202610050438
+Source: https://github.com/v2fly/geoip
+Artifact: https://github.com/v2fly/geoip/releases/download/202610050438/geoip.dat
+SHA-256: 4ff4b2ec242a9e87b296ba27ddb85f8311e8d3e071eaebac5be9231c60e408dd
+License: CC-BY-SA-4.0
+Files are redistributed unmodified.
+
+v2fly/domain-list-community
+Release: 20261026102707
+Source: https://github.com/v2fly/domain-list-community
+Artifact: https://github.com/v2fly/domain-list-community/releases/download/20261026102707/dlc.dat
+SHA-256: 67044ef9912a7a8f5e13d9ee64361d8c966e9bc3b0936d7a0b705904bc416561
+License: MIT
+Files are redistributed unmodified.
+
+The GeoIP project credits IP Geolocation by DB-IP, https://db-ip.com, licensed under Creative Commons Attribution 4.0 International: https://creativecommons.org/licenses/by/4.0/ .
+GeoIP project license: Creative Commons Attribution-ShareAlike 4.0 International.
+Geosite copyright: Copyright (c) 2018-2019 V2Ray, MIT.
+Full project license texts accompany these notices.

@@ -1,0 +1,7 @@
+<resources>
+  <string name="vpn_disclosure_title">Как QWIP VPN обрабатывает трафик</string>
+  <string name="vpn_disclosure_body">QWIP VPN получает сетевой трафик устройства, чтобы направлять его по правилам выбранного профиля. VPN-сервер обрабатывает адреса назначения и передаваемые через него данные. Указанный в профиле DNS-сервер получает запросы доменных имён. Профили и настройки хранятся на устройстве.</string>
+  <string name="vpn_disclosure_accept">Согласен, подключить</string>
+  <string name="vpn_disclosure_save_failed">Не удалось сохранить согласие на устройстве. Попробуйте ещё раз.</string>
+  <string name="vpn_privacy_policy">Политика конфиденциальности</string>
+</resources>

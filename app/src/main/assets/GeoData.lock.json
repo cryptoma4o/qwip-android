@@ -1,0 +1,26 @@
+[
+  {
+    "name": "geoip",
+    "repository": "v2fly/geoip",
+    "release": "202610050438",
+    "publishedAt": "2026-10-05T04:52:52Z",
+    "downloadURL": "https://github.com/v2fly/geoip/releases/download/202610050438/geoip.dat",
+    "sha256": "4ff4b2ec242a9e87b296ba27ddb85f8311e8d3e071eaebac5be9231c60e408dd",
+    "githubDigest": "sha256:4ff4b2ec242a9e87b296ba27ddb85f8311e8d3e071eaebac5be9231c60e408dd",
+    "licenseSPDX": "CC-BY-SA-4.0",
+    "licenseURL": "https://github.com/v2fly/geoip/blob/master/LICENSE",
+    "licenseSHA256": "5e436ff8ffbb77d8607220e9bce20c8915d860010feeb6c1ebef5a85688e9b39"
+  },
+  {
+    "name": "geosite",
+    "repository": "v2fly/domain-list-community",
+    "release": "20261026102707",
+    "publishedAt": "2026-10-26T10:27:16Z",
+    "downloadURL": "https://github.com/v2fly/domain-list-community/releases/download/20261026102707/dlc.dat",
+    "sha256": "67044ef9912a7a8f5e13d9ee64361d8c966e9bc3b0936d7a0b705904bc416561",
+    "githubDigest": "sha256:67044ef9912a7a8f5e13d9ee64361d8c966e9bc3b0936d7a0b705904bc416561",
+    "licenseSPDX": "MIT",
+    "licenseURL": "https://github.com/v2fly/domain-list-community/blob/master/LICENSE",
+    "licenseSHA256": "b9d84a22870d3f21c91a4c6e410c9cc51d00902f5233ad0c84011479244bf7d2"
+  }
+]

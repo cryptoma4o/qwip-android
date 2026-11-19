@@ -1,0 +1,8 @@
+# Preserve upstream licenses and Maven POM bytes, including their line endings.
+ThirdParty/** -text -whitespace
+app/src/main/assets/licenses/** -text -whitespace
+*.dat binary
+*.png binary
+*.jar binary
+gradlew text eol=lf
+gradlew.bat text eol=crlf whitespace=cr-at-eol

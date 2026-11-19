@@ -1,0 +1,61 @@
+name: Test Kotlin client core
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+      - name: Test import, raw JSON, routing and real local HTTPS
+        run: ./gradlew :core:test --no-daemon --console=plain
+      - name: Test the read-only upstream checker
+        run: python3 -m unittest discover -s tools/tests -v
+
+  bundle:
+    name: Build native engine and Android App Bundle
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+      - name: Install pinned Go and Android tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 -o "$RUNNER_TEMP/go.tar.gz" https://go.dev/dl/go1.27.3.linux-amd64.tar.gz
+          echo "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40  $RUNNER_TEMP/go.tar.gz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/go.tar.gz" -C "$RUNNER_TEMP"
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36" "build-tools;36.0.0" "ndk;29.0.13599879"
+      - name: Compile libXray and verify native binaries and GeoData
+        run: |
+          python3 tools/build_engine.py --go-bin "$RUNNER_TEMP/go/bin" --sdk "$ANDROID_HOME"
+          python3 tools/verify_engine.py
+      - name: Build and lint release
+        run: ./gradlew --no-daemon --console=plain :app:lintRelease :app:bundleRelease
+      - name: Record bundle checksum
+        run: cd app/build/outputs/bundle/release && sha256sum app-release.aab > SHA256SUMS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: QWIP-Android-unsigned-bundle
+          path: app/build/outputs/bundle/release/
+          if-no-files-found: error

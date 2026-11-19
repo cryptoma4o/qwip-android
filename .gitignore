@@ -1,0 +1,17 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.artifacts/
+/Support/
+VendorSources/
+app/libs/*.aar
+*.keystore
+*.jks
+*.hprof
+.DS_Store
+.idea/
+captures/
+__pycache__/
+*.pyc
+/ANDROID_PARITY_HANDOFF.txt

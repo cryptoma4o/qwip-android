@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.QWIP" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">#F2F2F7</item>
+        <item name="android:colorAccent">#3153C8</item>
+    </style>
+</resources>
